@@ -3,9 +3,11 @@
 src/**
 node_modules/**
 out/**/*.map
+scripts/**
 .gitignore
 TEMP_*.md
 tsconfig.json
 **/*.ts
 **/.eslintrc*
 REFACTOR_PROPOSALS.md
+*.vsix

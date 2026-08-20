@@ -66,11 +66,14 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "lint": "tsc -p ./ --noEmit"
+    "lint": "tsc -p ./ --noEmit",
+    "package": "vsce package --no-dependencies --allow-missing-repository",
+    "install:vscode": "bash ./scripts/install-vscode.sh"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
     "@types/vscode": "^1.95.0",
+    "@vscode/vsce": "^3.2.2",
     "typescript": "^5.7.2"
   }
 }

@@ -1,0 +1,76 @@
+{
+  "name": "dux",
+  "displayName": "Dux — OpenCode Chat",
+  "description": "VS Code Chat participant that connects to an existing opencode serve instance over HTTP.",
+  "version": "0.1.0",
+  "publisher": "thsfranca",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "AI",
+    "Chat"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dux.opencode.checkHealth",
+        "title": "Dux: Check OpenCode Serve Health"
+      }
+    ],
+    "configuration": {
+      "title": "Dux OpenCode",
+      "properties": {
+        "dux.opencode.baseUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:4096",
+          "description": "Base URL of a running opencode serve instance."
+        },
+        "dux.opencode.username": {
+          "type": "string",
+          "default": "opencode",
+          "description": "HTTP basic auth username (used when a password is set)."
+        },
+        "dux.opencode.password": {
+          "type": "string",
+          "default": "",
+          "description": "HTTP basic auth password for opencode serve (OPENCODE_SERVER_PASSWORD). Prefer leaving empty when auth is disabled."
+        }
+      }
+    },
+    "chatParticipants": [
+      {
+        "id": "dux.opencode",
+        "name": "opencode",
+        "fullName": "OpenCode",
+        "description": "Talk to your local opencode serve instance",
+        "isSticky": true,
+        "commands": [
+          {
+            "name": "new",
+            "description": "Start a new OpenCode session"
+          },
+          {
+            "name": "health",
+            "description": "Check opencode serve health"
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "tsc -p ./ --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.95.0",
+    "typescript": "^5.7.2"
+  }
+}

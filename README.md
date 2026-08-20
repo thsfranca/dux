@@ -2,6 +2,36 @@
 
 VS Code Chat participant that connects to a running [`opencode serve`](https://opencode.ai/docs/server/) instance over HTTP.
 
+## Install into Visual Studio Code
+
+One command from the repo root:
+
+```bash
+./scripts/install-vscode.sh
+```
+
+Or:
+
+```bash
+npm run install:vscode
+```
+
+This installs dependencies, compiles the extension, builds a `.vsix`, and runs `code --install-extension`.
+
+Requirements:
+
+- Node.js + npm
+- VS Code CLI (`code`) on your `PATH`  
+  (Command Palette → **Shell Command: Install 'code' command in PATH**)
+
+If `code` is not on your PATH:
+
+```bash
+VSCODE_CLI="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ./scripts/install-vscode.sh
+```
+
+Then reload VS Code, start `opencode serve`, and use `@opencode` in Chat.
+
 ## Prerequisites
 
 1. Install [OpenCode](https://opencode.ai/docs/).
